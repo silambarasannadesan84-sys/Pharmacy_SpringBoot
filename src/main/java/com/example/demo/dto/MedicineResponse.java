@@ -3,14 +3,14 @@ package com.example.demo.dto;
 import lombok.Builder;
 import lombok.Data;
 
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
 @Builder
-public class MedcineResponse {
+public class MedicineResponse {
 
-    private String Id;
+    private Long id;
 
     private String name;
 
@@ -20,7 +20,7 @@ public class MedcineResponse {
 
     private String category;
 
-    private String BatchNumber;
+    private String batchNumber;
 
     private LocalDate expiryDate;
 
@@ -28,7 +28,8 @@ public class MedcineResponse {
 
     private Integer reOrderLevel;
 
-    private BigInteger sellingPrice;
+    private BigDecimal sellingPrice;
 
-    private 
+    private String status;
+
 }
