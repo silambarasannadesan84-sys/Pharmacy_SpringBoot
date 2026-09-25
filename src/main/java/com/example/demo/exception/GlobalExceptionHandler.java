@@ -49,4 +49,59 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.badRequest().body(response);
     }
+
+    @ExceptionHandler(SupplierNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleSupplierNotFound(SupplierNotFoundException ex) {
+
+        Map<String, String> response = new HashMap<>();
+        response.put("error", "SUPPLIER_NOT_FOUND");
+        response.put("message", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    }
+    @ExceptionHandler(DuplicateSupplierException.class)
+    public ResponseEntity<Map<String, String>> handleDuplicateSupplier(DuplicateSupplierException ex) {
+
+        Map<String, String> response = new HashMap<>();
+        response.put("error", "DUPLICATE_SUPPLIER");
+        response.put("message", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
+    @ExceptionHandler(PurchaseNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handlePurchaseNotFound(PurchaseNotFoundException ex) {
+        Map<String, String> response = new HashMap<>();
+
+        response.put("error", "PURCHASE_NOT_FOUND");
+        response.put("message", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    }
+
+    @ExceptionHandler(InvalidPurchaseException.class)
+    public ResponseEntity<Map<String, String>> handleInvalidPurchase(InvalidPurchaseException ex) {
+
+        Map<String, String> response = new HashMap<>();
+        response.put("error", "INVALID_PURCHASE");
+        response.put("message", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+
+    @ExceptionHandler(SaleNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleSaleNotFound(SaleNotFoundException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("error", "SALE_NOT_FOUND");
+        response.put("message", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    }
+
+    @ExceptionHandler(InvalidSaleException.class)
+    public ResponseEntity<Map<String, String>> handleInvalidSale(InvalidSaleException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("error", "INVALID_SALE");
+        response.put("message", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+
 }
