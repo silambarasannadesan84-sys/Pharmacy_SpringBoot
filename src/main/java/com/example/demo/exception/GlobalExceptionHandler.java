@@ -104,4 +104,13 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, String>> handleIllegalArgumentException(IllegalArgumentException ex) {
+        Map<String, String> response = new HashMap<>();
+
+        response.put("error", "INVALID_REPORT_REQUEST");
+        response.put("message", ex.getMessage());
+        return ResponseEntity.badRequest().body(response);
+    }
+
 }

@@ -31,5 +31,7 @@ public class SaleItem {
 
     private BigDecimal sellingPrice;
 
+    private BigDecimal purchasePrice;
+
     private BigDecimal totalAmount;
 }

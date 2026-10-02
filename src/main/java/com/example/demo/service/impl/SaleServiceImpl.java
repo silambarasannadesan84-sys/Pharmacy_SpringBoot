@@ -153,6 +153,7 @@ public class SaleServiceImpl implements SaleService {
                     .batchNumber(itemRequest.getBatchNumber() != null ? itemRequest.getBatchNumber(): medicine.getBatchNumber())
                     .quantity(itemRequest.getQuantity())
                     .sellingPrice(sellingPrice)
+                    .purchasePrice(medicine.getPurchasePrice())
                     .totalAmount(itemTotal)
                     .build();
 
